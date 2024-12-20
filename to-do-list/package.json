@@ -1,7 +1,7 @@
 {
   "name": "to-do-list",
   "version": "0.1.0",
-  "homepage": "https://alexdoesnotexist1.github.io/to-do-list",
+  "homepage": "https://to-do-list-backend-www0.onrender.com/",
   "private": true,
   "dependencies": {
     "axios": "^1.7.9",
