@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Set your backend URL // maybe change it to localhost:5000/tasks?
-const API = axios.create({ baseURL: 'http://localhost:5000/tasks' });
+const API = axios.create({ baseURL: 'https://to-do-list-backend-www0.onrender.com/tasks' });
 
 // Fetch all tasks
 export const fetchTasks = () => API.get('/');
