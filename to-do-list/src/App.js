@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { fetchTasks, createTask, updateTask, deleteTask } from './api';
+import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const { data } = await fetchTasks();
+      setTasks(data);
+    };
+    getTasks();
+  }, []);
+
+  const handleAddTask = async (task) => {
+    const { data } = await createTask(task);
+    setTasks([...tasks, data]);
+  };
+
+  const handleUpdateTask = async (id, updatedTask) => {
+    const { data } = await updateTask(id, updatedTask);
+    setTasks(tasks.map((task) => (task._id === id ? data : task)));
+  };
+
+  const handleDeleteTask = async (id) => {
+    await deleteTask(id);
+    setTasks(tasks.filter((task) => task._id !== id));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>To-Do List</h1>
+      <TaskForm onAdd={handleAddTask} />
+      <TaskList tasks={tasks} onDelete={handleDeleteTask} onUpdate={handleUpdateTask} />
     </div>
   );
-}
+};
 
 export default App;

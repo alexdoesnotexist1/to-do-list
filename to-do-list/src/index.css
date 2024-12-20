@@ -1,13 +1,82 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	background-color: black;
+	color: white;
+	font-family: "Comic Sans MS", serif;
+	margin-left: 15%;
+	margin-right: 15%;
+	
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+	text-align: center;
+	font-size: 4vw;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input,
+form textarea {
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  font-size: 1rem;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  font-family: "Comic Sans MS", serif;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #111;
+}
+
+.tasklist {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task {
+  gap: 5px;
+  padding: 20px;
+  border: 1px solid white;
+}
+
+.task h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.task p {
+  margin: 5px 0;
+  color: white;
+  word-wrap: break-word;
+}
+
+.task-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+
+.task-edit textarea {
+  resize: vertical;
+}
+
+
